@@ -80,5 +80,7 @@ public class Sprite {
 	// 충돌을 처리한다.
 	public void handleCollision(Sprite other) {
 
-	}
 }
+}
+
+

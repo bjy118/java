@@ -6,7 +6,8 @@ public class ShotSprite extends Sprite {
 	public ShotSprite(GalagaGame game, Image image, int x, int y) {
 		super(image, x, y);
 		this.game = game;
-		dy = -3;
+		dy = -30;
+		 
 	}
 
 	@Override
