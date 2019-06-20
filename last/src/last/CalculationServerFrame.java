@@ -18,11 +18,11 @@ import javax.swing.JTextArea;
 public class CalculationServerFrame extends JFrame{
 	private JTextArea log = new JTextArea();
 	public CalculationServerFrame() {
-		super("멀티스레드 계산 서버");
+		super("멀티스레드 통신 서버");
 		setSize(250, 250);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // 프레임 종료 버튼 (X)을 클릭하면 프로그램 종료
 		Container c = getContentPane();
-		c.add(new JLabel("계산 서버 입니다"));
+		c.add(new JLabel("통신 서버 입니다"));
 		c.add(new JScrollPane(log), BorderLayout.CENTER);
 		setVisible(true);
 		
@@ -76,34 +76,14 @@ public class CalculationServerFrame extends JFrame{
 		public void run() {
 			while(true) {
 				try{
+					
 					String first = in.readLine(); // 첫 수
 					String operator = in.readLine(); // 첫수
 					String second = in.readLine(); // 둚째 수
 					int a = Integer.parseInt(first); // 정수로 변환
 					int b = Integer.parseInt(second); // 정수로 변환
 					
-					String resText = "";
-					int res = 0;
-					switch(operator) {
-					case "+" : res = a + b; resText =
-							Integer.toString(res); break;
-					case "-" : res = a - b; resText = 
-							Integer.toString(res); break;
-					case "*" : res = a * b; resText =
-							Integer.toString(res); break;
-					case "/" :
-						if(b == 0) resText = "0으로 나눟 수 없음";
-						else {
-							res = a / b;
-							resText = Integer.toString(res);
-						}
-						break;
-					default:
-						resText = "잘못된 연산";
-					}
-					out.write(resText+"\n");
-					out.flush();
-					log.append(first + operator + second + "=" + resText + "\n");
+					
 				} catch (IOException e) {
 					log.append("연결 종료\n");
 					System.out.println("연결 종료");
