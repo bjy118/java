@@ -6,7 +6,6 @@ public class RockPaperScissors {
 		
 		Scanner scanner = new Scanner(System.in);
 		
-		for(int i=0; i<3; i++) {
 		System.out.print("가위바위보를 하시오:");
 		int score = scanner.nextInt();
 		
@@ -32,7 +31,6 @@ public class RockPaperScissors {
 			System.out.println("보");
 		}
 		System.out.print("결과");
-		}
 	}
 
 }
